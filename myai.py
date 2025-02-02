@@ -13,6 +13,7 @@ def handle_query():
     # Get the query from the frontend
     data = request.get_json()
     query = data.get('query')
+    print(query)
 
     if not query:
         return jsonify({'error': 'No query provided'}), 400

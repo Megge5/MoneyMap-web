@@ -6,26 +6,23 @@ document.getElementById('submit').addEventListener('click', async function() {
     }
 
     const responseField = document.getElementById('response');
+    responseField.textContent = 'Loading...'; // Set initial loading text
 
     try {
-        // Make a POST request to your backend (myai.py)
-        const response = await fetch('https://127.0.0.1:5000', {  // Adjust the URL to match your backend endpoint
+        const response = await fetch('http://127.0.0.1:5500/query', {  // URL of Flask endpoint
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                query: query
-            })
+            body: JSON.stringify({ query: query }),
         });
 
-        const result = await response.json();
-
-        if (result && result.reply) {
-            responseField.textContent = result.reply;  // Assuming the backend sends a 'reply' field in the response
-        } else {
-            responseField.textContent = 'Sorry, I could not get a response.';
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
+
+        const data = await response.json();
+        responseField.textContent = data.response;  // Show the response from Flask
     } catch (error) {
         console.error('Error:', error);
         responseField.textContent = 'There was an error with the request.';

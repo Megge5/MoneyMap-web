@@ -1,108 +1,91 @@
-/* General Reset for Margin and Padding */
-* {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body and Background Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7f6;
     color: #333;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    background-color: #f4f4f4;
 }
 
-/* Container to center the form */
-.container {
+header {
+    background: #2c3e50;
+    color: #fff;
+    padding: 15px 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
 }
 
-/* Form Styling */
-.form-container {
-    background-color: #ffffff;
-    padding: 40px;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.signup-btn {
+    background: #e67e22;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.hero {
     text-align: center;
-}
-
-h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    font-size: 14px;
-    color: #444;
-    margin-bottom: 5px;
-}
-
-.input-field {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    transition: border 0.3s ease-in-out;
-}
-
-.input-field:focus {
-    border-color: #4CAF50;
-    outline: none;
-}
-
-/* Button Styling */
-.btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #4CAF50;
+    padding: 50px 20px;
+    background: #3498db;
     color: white;
-    font-size: 16px;
-    border: none;
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #e74c3c;
+    color: white;
+    text-decoration: none;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.btn:hover {
-    background-color: #45a049;
+.features {
+    text-align: center;
+    padding: 50px 20px;
+    background: white;
 }
 
-button:focus {
-    outline: none;
+.feature-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-/* Responsiveness for smaller screens */
-@media screen and (max-width: 600px) {
-    .form-container {
-        width: 100%;
-        padding: 30px;
-    }
+.feature {
+    width: 250px;
+    margin: 20px;
+    padding: 20px;
+    background: #ecf0f1;
+    border-radius: 10px;
+}
+
+.steps {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #2c3e50;
+    color: white;
 }
