@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,26 +143,18 @@
         <div class="account-options">
             <!-- Cash Card -->
             <div class="account-option">
-                <h3>Monthly Budget.</h3>
+                <h3>Cash</h3>
                 <p>Manage your cash balance.</p>
                 <button class="account-btn" onclick="openModal('cash')">Add Details</button>
                 <ul id="cash-list"></ul>
             </div>
 
-            <!-- Card Details Card -->
+            <!-- Savings Card -->
             <div class="account-option">
-                <h3>Card Details</h3>
-                <p>Manage your card information.</p>
-                <button class="account-btn" onclick="openModal('card')">Add Card Details</button>
-                <ul id="card-list"></ul>
-            </div>
-
-            <!-- Monthly Income Card -->
-            <div class="account-option">
-                <h3>Monthly Income</h3>
-                <p>Track your monthly income.</p>
-                <button class="account-btn" onclick="openModal('income')">Add Income</button>
-                <ul id="income-list"></ul>
+                <h3>Savings</h3>
+                <p>Track your savings.</p>
+                <button class="account-btn" onclick="openModal('savings')">Add Details</button>
+                <ul id="savings-list"></ul>
             </div>
         </div>
     </section>
@@ -183,18 +173,6 @@
             
             <label for="description">Description:</label>
             <input type="text" id="description" placeholder="Enter description" required>
-
-            <!-- Card Details fields -->
-            <div id="card-fields" style="display: none;">
-                <label for="card-number">Card Number:</label>
-                <input type="text" id="card-number" placeholder="Enter card number" required>
-                
-                <label for="card-type">Card Type:</label>
-                <input type="text" id="card-type" placeholder="Enter card type" required>
-                
-                <label for="expiry-date">Expiry Date:</label>
-                <input type="month" id="expiry-date" required>
-            </div>
             
             <button onclick="saveDetails()">Save</button>
         </div>
@@ -204,22 +182,12 @@
         function openModal(category) {
             document.getElementById("modal").style.display = "flex";
             document.getElementById("currentCategory").value = category;
-            
-            // Show Card fields if 'card' category is selected
-            if (category === 'card') {
-                document.getElementById("card-fields").style.display = "block";
-            } else {
-                document.getElementById("card-fields").style.display = "none";
-            }
         }
 
         function closeModal() {
             document.getElementById("modal").style.display = "none";
             document.getElementById("amount").value = "";
             document.getElementById("description").value = "";
-            document.getElementById("card-number").value = "";
-            document.getElementById("card-type").value = "";
-            document.getElementById("expiry-date").value = "";
             document.getElementById("editIndex").value = "";
         }
 
@@ -233,21 +201,7 @@
             let category = document.getElementById("currentCategory").value;
             let amount = document.getElementById("amount").value;
             let description = document.getElementById("description").value;
-            let list = document.getElementById(category + '-list'); // Fixed dynamic ID
-
-            // Add validation for 'Card' fields
-            if (category === 'card') {
-                let cardNumber = document.getElementById("card-number").value;
-                let cardType = document.getElementById("card-type").value;
-                let expiryDate = document.getElementById("expiry-date").value;
-
-                if (!cardNumber || !cardType || !expiryDate) {
-                    alert("Please enter all card details.");
-                    return;
-                }
-
-                description = `${cardNumber} - ${cardType} (Expiry: ${expiryDate})`; // Fixed template literal
-            }
+            let list = document.getElementById(${category}-list);
 
             if (!amount || !description) {
                 alert("Please enter all details.");
@@ -269,43 +223,3 @@
 
 </body>
 </html>
-=======
-<section class="accounts">
-    <h2>Manage Accounts</h2>
-    <div class="account-options">
-        <!-- Cash Card -->
-        <div class="account-option">
-            <h3>Cash</h3>
-            <p>Manage your cash balance.</p>
-            <button class="account-btn" onclick="openModal('cash')">Add Details</button>
-            <ul id="cash-list"></ul>
-        </div>
-
-        <!-- Savings Card -->
-        <div class="account-option">
-            <h3>Savings</h3>
-            <p>Track your savings.</p>
-            <button class="account-btn" onclick="openModal('savings')">Add Details</button>
-            <ul id="savings-list"></ul>
-        </div>
-    </div>
-</section>
-
-<!-- Modal for Adding or Editing Details -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <h3 id="modal-title">Add Details</h3>
-        <input type="hidden" id="currentCategory">
-        <input type="hidden" id="editIndex">
-        
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" placeholder="Enter amount">
-        
-        <label for="description">Description:</label>
-        <input type="text" id="description" placeholder="Enter description">
-        
-        <button onclick="saveDetails()">Save</button>
-    </div>
-</div>
->>>>>>> 0fc2ac7d6f4cdb8b9df7cfbd6f7e9ab1504fe484

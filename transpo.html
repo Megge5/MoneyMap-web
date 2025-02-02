@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportation Expenses</title>
+    <link rel="stylesheet" href="trans.css">
+</head>
+<body>
+    <header>
+        <h1>Transportation Expenses</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="accounts.html">Accounts</a></li>
+                <li><a href="transportation.html" class="active">Transportation</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="expense-tracking">
+        <h2>Track Your Transportation Expenses</h2>
+
+        <!-- Form for adding a new transportation expense -->
+        <form id="expense-form">
+            <div class="form-group">
+                <label for="expense-name">Expense Name</label>
+                <input type="text" id="expense-name" name="expense-name" placeholder="e.g., Fuel, Taxi" required>
+            </div>
+            <div class="form-group">
+                <label for="expense-amount">Amount</label>
+                <input type="number" id="expense-amount" name="expense-amount" placeholder="Amount in USD" required>
+            </div>
+            <div class="form-group">
+                <label for="expense-date">Date</label>
+                <input type="date" id="expense-date" name="expense-date" required>
+            </div>
+            <button type="submit" class="submit-btn">Add Expense</button>
+        </form>
+
+        <!-- Displaying the list of transportation expenses -->
+        <div class="expense-list">
+            <h3>Recent Transportation Expenses</h3>
+            <ul id="expense-list">
+                <!-- List of expenses will be displayed here dynamically -->
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 MoneyMap. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for handling the form submission and displaying expenses
+
+        // Sample expense data (This will usually come from a database)
+        let expenses = [];
+
+        // Function to display expenses
+        function displayExpenses() {
+            const expenseList = document.getElementById('expense-list');
+            expenseList.innerHTML = ''; // Clear the list
+
+            // Add each expense to the list
+            expenses.forEach((expense, index) => {
+                const expenseItem = document.createElement('li');
+                expenseItem.innerHTML = `<strong>${expense.name}</strong> - $${expense.amount} on ${expense.date}`;
+                expenseList.appendChild(expenseItem);
+            });
+        }
+
+        // Handle form submission
+        document.getElementById('expense-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get values from the form
+            const name = document.getElementById('expense-name').value;
+            const amount = document.getElementById('expense-amount').value;
+            const date = document.getElementById('expense-date').value;
+
+            // Add new expense to the array
+            expenses.push({ name, amount, date });
+
+            // Clear the form
+            document.getElementById('expense-form').reset();
+
+            // Re-display the updated list of expenses
+            displayExpenses();
+        });
+
+        // Initially display expenses (in case there are some stored in the array)
+        displayExpenses();
+    </script>
+</body>
+</html>
