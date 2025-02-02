@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background: #2c3e50;
+    background: #1d0250;
     color: #fff;
     padding: 15px 20px;
     display: flex;
@@ -44,7 +44,7 @@ nav ul li a {
 .hero {
     text-align: center;
     padding: 50px 20px;
-    background: #3498db;
+    background: rgb(99, 188, 87);
     color: white;
 }
 

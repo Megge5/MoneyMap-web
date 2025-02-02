@@ -1,0 +1,211 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Layout */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 254);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+nav ul li a.active {
+    color: #fcfbf8;
+}
+
+/* Accounts Section */
+.accounts {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.accounts h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.account-options {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.account-option {
+    position:relative;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.account-option:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.account-option h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.account-option p {
+    font-size: 16px;
+    color: #666;
+}
+
+.account-btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.account-btn:hover {
+    background-color: #388e3c;
+}
+
+/* Expenses Section */
+.expenses {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f1f1f1;
+}
+
+.expenses h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.expense-options {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.expense-option {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expense-option:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.expense-option h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.expense-option p {
+    font-size: 16px;
+    color: #666;
+}
+
+.expense-btn {
+    display: inline-block;
+    background-color: #ff9800;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.expense-btn:hover {
+    background-color: #f57c00;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 16px;
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .account-options,
+    .expense-options {
+        flex-direction: column;
+    }
+
+    .account-option, 
+    .expense-option {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .account-btn, 
+    .expense-btn {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+}

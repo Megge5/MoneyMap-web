@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Expenses</title>
+
+    <!-- CSS Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .expense-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .expense-option {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .expense-option:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .expense-btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .expense-btn:hover {
+            background-color: #388e3c;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="expenses">
+        <h2>Manage Your Expenses</h2>
+        <div class="expense-options">
+            <div class="expense-option">
+                <h3>💡 Bill</h3>
+                <p>Track your monthly bills and payments.</p>
+                <a href="bill.html" class="expense-btn">View & Manage</a>
+            </div>
+            <div class="expense-option">
+                <h3>🚗 Transportation</h3>
+                <p>Manage your transportation expenses (fuel, taxis, etc.).</p>
+                <a href="transportation.html" class="expense-btn">View & Manage</a>
+            </div>
+            <div class="expense-option">
+                <h3>🎓 Education</h3>
+                <p>Keep track of your education-related expenses.</p>
+                <a href="education.html" class="expense-btn">View & Manage</a>
+            </div>
+            <div class="expense-option">
+                <h3>🍔 Food</h3>
+                <p>Track your food-related spending (groceries, dining, etc.).</p>
+                <a href="food.html" class="expense-btn">View & Manage</a>
+            </div>
+            <div class="expense-option">
+                <h3>💪 Health</h3>
+                <p>Manage your health-related expenses (medical bills, insurance, etc.).</p>
+                <a href="health.html" class="expense-btn">View & Manage</a>
+            </div>
+            <div class="expense-option">
+                <h3>🛍 Shopping</h3>
+                <p>Track your shopping expenses and purchases.</p>
+                <a href="shopping.html" class="expense-btn">View & Manage</a>
+            </div>
+            <div class="expense-option">
+                <h3>💸Expense</h3>
+                <p>Keep track of your overall expenses (events, outings, etc.).</p>
+                <a href="#" class="expense-btn">View & Manage</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 MoneyMap. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+
