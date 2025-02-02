@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Cash</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+        .cash-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cash-list li {
+            background: #f1f1f1;
+            padding: 10px;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .delete-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .delete-btn:hover {
+            background: darkred;
+        }
+
+        .back-btn {
+            background-color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Manage Cash</h2>
+    <div class="container">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" placeholder="Enter amount" required>
+        
+        <label for="description">Description:</label>
+        <input type="text" id="description" placeholder="Enter description" required>
+        
+        <button onclick="addCashDetail()">Add Cash Detail</button>
+
+        <ul class="cash-list" id="cash-list"></ul>
+    </div>
+
+    <button class="back-btn" onclick="window.location.href='index.html'">Back</button>
+
+    <script>
+        function addCashDetail() {
+            let amount = document.getElementById("amount").value;
+            let description = document.getElementById("description").value;
+            let list = document.getElementById("cash-list");
+
+            if (!amount || !description) {
+                alert("Please enter all details.");
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.innerHTML = `${amount} - ${description} 
+                <button class="delete-btn" onclick="deleteEntry(this)">Delete</button>`;
+
+            list.appendChild(li);
+
+            // Clear input fields
+            document.getElementById("amount").value = "";
+            document.getElementById("description").value = "";
+        }
+
+        function deleteEntry(button) {
+            button.parentElement.remove();
+        }
+    </script>
+
+</body>
+</html>

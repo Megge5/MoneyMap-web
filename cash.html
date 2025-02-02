@@ -1,0 +1,38 @@
+<section class="accounts">
+    <h2>Manage Accounts</h2>
+    <div class="account-options">
+        <!-- Cash Card -->
+        <div class="account-option">
+            <h3>Cash</h3>
+            <p>Manage your cash balance.</p>
+            <button class="account-btn" onclick="openModal('cash')">Add Details</button>
+            <ul id="cash-list"></ul>
+        </div>
+
+        <!-- Savings Card -->
+        <div class="account-option">
+            <h3>Savings</h3>
+            <p>Track your savings.</p>
+            <button class="account-btn" onclick="openModal('savings')">Add Details</button>
+            <ul id="savings-list"></ul>
+        </div>
+    </div>
+</section>
+
+<!-- Modal for Adding or Editing Details -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3 id="modal-title">Add Details</h3>
+        <input type="hidden" id="currentCategory">
+        <input type="hidden" id="editIndex">
+        
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" placeholder="Enter amount">
+        
+        <label for="description">Description:</label>
+        <input type="text" id="description" placeholder="Enter description">
+        
+        <button onclick="saveDetails()">Save</button>
+    </div>
+</div>

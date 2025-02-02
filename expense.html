@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+
+    <!-- CSS Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .expense-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .category {
+            margin: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .category input {
+            padding: 5px;
+            margin: 10px;
+        }
+
+        .category button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .category button:hover {
+            background-color: #388e3c;
+        }
+
+        .total-expenses {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .warning {
+            color: rgb(210, 11, 11);
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Expense Tracker</h2>
+
+    <div class="expense-section">
+        <!-- Bill Category -->
+        <div class="category">
+            <h3>Bills</h3>
+            <input type="number" id="bills-input" placeholder="Enter Bill Amount" />
+            <button onclick="addExpense('bills')">Add Bill</button>
+            <p id="bills-total">Total: 0.00rs</p>
+        </div>
+
+        <!-- Transportation Category -->
+        <div class="category">
+            <h3>Transportation</h3>
+            <input type="number" id="transportation-input" placeholder="Enter Transportation Amount" />
+            <button onclick="addExpense('transportation')">Add Transportation</button>
+            <p id="transportation-total">Total: 0.00rs</p>
+        </div>
+
+        <!-- Food Category -->
+        <div class="category">
+            <h3>Food</h3>
+            <input type="number" id="food-input" placeholder="Enter Food Amount" />
+            <button onclick="addExpense('food')">Add Food</button>
+            <p id="food-total">Total: 0.00rs</p>
+        </div>
+
+        <!-- Health Category -->
+        <div class="category">
+            <h3>Health</h3>
+            <input type="number" id="health-input" placeholder="Enter Health Amount" />
+            <button onclick="addExpense('health')">Add Health</button>
+            <p id="health-total">Total: 0.00rs</p>
+        </div>
+
+        <!-- Final Total Expense Info -->
+        <p id="total-expenses">Total Expenses: 0.00rs</p>
+        <p id="warning" class="warning"></p> <!-- Budget exceeded warning -->
+
+    </div>
+
+    <script>
+        const BUDGET_LIMIT = 1000; // Set a total budget limit
+
+        // Define the expenses for each category
+        const expenses = {
+            bills: 0.00,
+            transportation: 0.00,
+            food: 0.00,
+            health: 0.00
+        };
+
+        // Function to update total for each category and overall total
+        function addExpense(category) {
+            const input = document.getElementById(`${category}-input`);
+            const amount = parseFloat(input.value);
+
+            // Debugging log to check input value
+            console.log(`Category: ${category}, Input Amount: ${amount}`);
+
+            // Ensure that the input value is a valid number and greater than 0
+            if (isNaN(amount) || amount <= 0) {
+                alert("Please enter a valid amount.");
+                return;
+            }
+
+            // Add the amount to the corresponding category
+            expenses[category] += amount;
+
+            // Update the category total display
+            document.getElementById(`${category}-total`).textContent = `Total: ${expenses[category].toFixed(2)}rs`;
+
+            // Update the overall total
+            tallyExpenses();
+
+            // Clear the input field
+            input.value = "";
+        }
+
+        // Function to tally the total expenses across all categories
+        function tallyExpenses() {
+            let totalAmount = 0;
+
+            // Sum all the expenses from the subdivisions
+            for (let category in expenses) {
+                totalAmount += expenses[category];
+            }
+
+            // Update the total expenses display
+            document.getElementById("total-expenses").textContent = `Total Expenses: ${totalAmount.toFixed(2)}rs`;
+
+            // Check if the total exceeds the budget
+            checkBudget(totalAmount);
+        }
+
+        // Function to check if the total expenses exceed the budget
+        function checkBudget(totalAmount) {
+            const warning = document.getElementById("warning");
+            if (totalAmount > BUDGET_LIMIT) {
+                warning.textContent = "You have exceeded your budget limit!";
+            } else {
+                warning.textContent = "";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
