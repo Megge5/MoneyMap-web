@@ -5,7 +5,6 @@ app = Flask(__name__)
 
 # Initialize OpenAI client
 client = OpenAI(
-    api_key="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"
 )
 
 @app.route('/query', methods=['POST'])
